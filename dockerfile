@@ -17,7 +17,7 @@ ARG DATABASE_URL
 # 4. Create a .env file from build arguments
 RUN echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_ZGVjZW50LXBlYWNvY2stNTguY2xlcmsuYWNjb3VudHMuZGV2JA" > .env && \
     echo "CLERK_SECRET_KEY=sk_test_u7lK4ZGXknnxdtadxMbXyptU5RmL3xsGVDEIpMVy7x" >> .env && \
-    echo "DATABASE_URL=postgresql://postgres:admin@localhost:5432/edgecareer?schema=public" >> .env && \
+    echo "DATABASE_URL=postgresql://postgres:admin@localhost:5432/careerkit?schema=public" >> .env && \
     echo "NODE_ENV=production" >> .env
 
 # 5. Copy the rest of the application
@@ -38,4 +38,4 @@ CMD ["npm", "start"]
 #   --build-arg NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_pub_key_here `
 #   --build-arg CLERK_SECRET_KEY=your_secret_key_here `
 #   --build-arg DATABASE_URL="your_db_url_here" `
-#   -t edgecareer .
+#   -t careerkit .

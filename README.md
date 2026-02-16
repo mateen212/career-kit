@@ -1,4 +1,4 @@
-# 🚀 EdgeCareer – AI-Powered Career Coach  
+# 🚀 CareerKit – AI-Powered Career Coach  
 
 ![GSSoC Logo](/gssoc%20logo.png)
 
@@ -7,7 +7,7 @@
 > **Full Stack AI Career Coach built with React 19 + Next.js 15, Tailwind CSS, NeonDB, Prisma, Clerk Authentication, Inngest, Gemini API, and Shadcn UI.**  
 > A **cutting-edge AI-driven career platform** that provides **personalized job recommendations, AI resume reviews, and real-time career insights** to help users land their dream job.  
 
-![EdgeCareer Banner](https://github.com/amitkumardemo/EdgeCareer/blob/main/EdgeCareers.png)
+![CareerKit Banner](https://raw.githubusercontent.com/mateen212/CareerKit/main/CareerKit.png)
 
 
 **⚠️ Important for SSoC Contributors (SSoC S4)**
@@ -86,7 +86,7 @@ GEMINI_API_KEY=
 
 ## 🧩 Getting Started – Step-by-Step Setup
 
-Follow these simple steps to set up **EdgeCareer** locally and start contributing:
+Follow these simple steps to set up **CareerKit** locally and start contributing:
 
 ---
 
@@ -104,8 +104,8 @@ This helps you work on the project independently and also motivates the maintain
 Open your terminal and run:
 
 ```
-git clone https://github.com/your-username/EdgeCareer.git
-cd EdgeCareer
+git clone https://github.com/mateen212/CareerKit.git
+cd CareerKit
 ```
 ---
 
@@ -164,13 +164,13 @@ Make changes, commit, and raise a pull request with a clear message.
    --build-arg NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_pub_key_here `
    --build-arg CLERK_SECRET_KEY=your_secret_key_here `
    --build-arg DATABASE_URL="your_db_url_here" `
-   -t your-app-name .
+   -t CareerKit .
 ```
 
 2.  Run the Container
 
 ```bash
-docker run -p 3000:3000 your-app-name
+docker run -p 3000:3000 CareerKit
 ```
 
 Replace 3000:3000 with <host-port>:<container-port> as needed.
@@ -224,20 +224,20 @@ If CareSync has helped you, please consider:
 ## 🤝 Contribution Guidelines
 
 We welcome **frontend, backend, AI, and design** contributions.  
-See [CONTRIBUTION.md](https://github.com/amitkumardemo/EdgeCareer/blob/main/CONTRIBUTING.md) for details.
+See [CONTRIBUTION.md](https://github.com/mateen212/CareerKit/blob/main/CONTRIBUTING.md) for details.
 
 ---
 
 ## 📜 License
-Licensed under the [MIT License](https://github.com/amitkumardemo/EdgeCareer/blob/main/LICENSE.md).
+Licensed under the [MIT License](https://github.com/mateen212/CareerKit/blob/main/LICENSE.md).
 
 ---
 
 <h1 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /> Give us a Star and let's make magic! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /></h1>
 <p align="center">
   Thank you for your support!
-  <a href="https://github.com/amitkumardemo/EdgeCareer/stargazers">
-    <img src="https://img.shields.io/github/stars/amitkumardemo/EdgeCareer?style=for-the-badge&logo=github&color=FFC107&logoColor=white" alt="GitHub Stars">
+  <a href="https://github.com/mateen212/CareerKit/stargazers">
+    <img src="https://img.shields.io/badge/Stars-CareerKit-FFD54F?style=for-the-badge&logo=github&color=FFC107&logoColor=white" alt="GitHub Stars">
   </a>
 </p>
 <div align="center">

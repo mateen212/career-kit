@@ -1,22 +1,22 @@
 ---
 name: "📝 How to Contribute & Create Issues for SSOC S4"
-about: "Step-by-step guide for contributors to help with EdgeCareer during Social Summer of Code Season 4"
-title: "How to Contribute and Create Issues for EdgeCareer | SSOC S4"
+about: "Step-by-step guide for contributors to help with CareerKit during Social Summer of Code Season 4"
+title: "How to Contribute and Create Issues for CareerKit | SSOC S4"
 labels: "documentation, help wanted"
 assignees: ""
 
 ---
 
-# 👋 Welcome to EdgeCareer Contributors!
+ # 👋 Welcome to CareerKit Contributors!
 
-Thank you for joining the **EdgeCareer** project and being part of **Social Summer of Code Season 4 (SSOC S4)**!  
+Thank you for joining the **CareerKit** project and being part of **Social Summer of Code Season 4 (SSOC S4)**!  
 This guide will help you understand **how to contribute** and **how to create or pick issues** to work on easily.
 
 ---
 
-## 🔍 What is EdgeCareer?
+## 🔍 What is CareerKit?
 
-EdgeCareer is an AI-powered career coach platform that helps users build resumes, get job recommendations, prepare for interviews, and explore career insights — all powered by AI!
+CareerKit is an AI-powered career coach platform that helps users build resumes, get job recommendations, prepare for interviews, and explore career insights — all powered by AI!
 
 Your contributions will help us build new features, fix bugs, improve UI/UX, and make the platform better for everyone.
 
@@ -26,9 +26,9 @@ Your contributions will help us build new features, fix bugs, improve UI/UX, and
 
 ### 1. Fork & Clone the Repository
 
-- Fork the [EdgeCareer GitHub repo](https://github.com/amitkumardemo/EdgeCareer) to your own GitHub account.
-- Clone your fork locally:
--[git clone](https://github.com/your-username/EdgeCareer.git)
+ - Fork the [CareerKit GitHub repo](https://github.com/mateen212/CareerKit) to your own GitHub account.
+ - Clone your fork locally:
+ - [git clone](https://github.com/mateen212/CareerKit.git)
 
 
 ### 2. Create a New Branch
@@ -88,10 +88,10 @@ If you want to add new tasks or improvements, follow these steps:
 
 ---
 
-Thanks for contributing to **EdgeCareer**! Your help is valuable in building a powerful AI career platform for everyone.  
+Thanks for contributing to **CareerKit**! Your help is valuable in building a powerful AI career platform for everyone.  
 Happy coding! 💙
 
 ---
 
-*— EdgeCareer Team 🚀*
+*— CareerKit Team 🚀*
 Amit Kumar Project Admin

@@ -528,7 +528,7 @@ export default function LandingPage() {
       <section
         id="how-it-works"
         className="w-full py-12 md:py-24 bg-background relative overflow-x-hidden" // Added overflow-x-hidden
-        aria-label="How EdgeCareer Works"
+        aria-label="How CareerKit Works"
         ref={howItWorksRef}
       >
         {/* Background decorative elements - adjust positioning to prevent overflow */}

@@ -214,7 +214,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 0.2 }}
               >
-                Welcome to EdgeCareer
+                Welcome to CareerKit
               </motion.span>
               <br />
               <motion.span

@@ -8,9 +8,9 @@ export default function Footer() {
         {/* Logo and Tagline */}
         <div className="col-span-1">
           <div className="flex items-center gap-2 mb-4">
-            <img src="/skill.png" alt="EdgeCareer Logo" className="h-6 w-auto" />
+            {/* <img src="/career-kit.png" alt="App Logo" className=" w-auto" /> */}
             <span className="text-xl md:text-2xl font-extrabold tracking-wide text-black dark:text-white">
-              EdgeCareer
+              CareerKit
             </span>
           </div>
           <p className="text-gray-600 dark:text-gray-400">
@@ -24,7 +24,7 @@ export default function Footer() {
             Explore
           </h3>
           <ul className="space-y-2">
-            <li><Link href="/dashboard" className="hover:text-primary transition">Dashboard</Link></li>
+            {/* <!-- Dashboard removed --> */}
             <li><Link href="/resume" className="hover:text-primary transition">Resume Builder</Link></li>
             <li><Link href="/interview" className="hover:text-primary transition">Mock Interviews</Link></li>
             <li><Link href="/ai-cover-letter" className="hover:text-primary transition">AI Cover Letter</Link></li>
@@ -92,7 +92,7 @@ export default function Footer() {
       </div>
 
       <div className="text-center text-gray-500 dark:text-gray-400 text-xs mt-10">
-        © {new Date().getFullYear()} EdgeCareer. Built with 💡 by Edge Career.
+        © {new Date().getFullYear()} CareerKit. Built with 💡 by the CareerKit Team.
       </div>
     </footer>
   );
