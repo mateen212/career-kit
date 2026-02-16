@@ -249,5 +249,6 @@ Licensed under the [MIT License](https://github.com/mateen212/CareerKit/blob/mai
 
 ---
  **👨‍💻 Developed By**
-  **❤️Amit Kumar❤️**
-[GitHub](https://github.com/amitkumardemo) | [LinkedIn](https://www.linkedin.com/in/amit-kumar-686196225/)
+  **❤️Muhammad Mateen❤️**
+[GitHub](https://github.com/mateen212) 
+
