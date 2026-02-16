@@ -1,6 +1,5 @@
 # 🚀 CareerKit – AI-Powered Career Coach  
 
-![GSSoC Logo](/gssoc%20logo.png)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -251,4 +250,5 @@ Licensed under the [MIT License](https://github.com/mateen212/CareerKit/blob/mai
  **👨‍💻 Developed By**
   **❤️Muhammad Mateen❤️**
 [GitHub](https://github.com/mateen212) 
+
 
