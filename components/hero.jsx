@@ -94,34 +94,7 @@ const HeroSection = () => {
   const controls = useAnimation();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [quote, setQuote] = useState(null);
-const [quoteError, setQuoteError] = useState(null);
 
-useEffect(() => {
-  async function fetchQuote() {
-    try {
-      const res = await fetch("https://zenquotes.io/api/today", { cache: "no-store" });
-      const data = await res.json();
-     setQuote(data[0]);
-    } catch (error) {
-      setQuoteError("Could not load today's quote.");
-    }
-  }
-
-  fetchQuote();
-}, []);useEffect(() => {
-  async function fetchQuote() {
-    try {
-      const res = await fetch("/api/quote");
-      const data = await res.json();
-      setQuote(data);
-    } catch (error) {
-      setQuoteError("Could not load today's quote.");
-    }
-  }
-
-  fetchQuote();
-}, []);
 
 
 
@@ -263,24 +236,6 @@ useEffect(() => {
                 speed={3}
                 className="mx-auto max-w-[600px] md:text-xl relative z-10 text-muted-foreground"
               />
-              {quote && (
-                <motion.div
-                  className="mt-6 text-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2, duration: 0.6 }}
-                >
-                  <div className="text-sm font-semibold text-primary flex justify-center items-center gap-2 mb-1">
-                    <Sparkles className="w-4 h-4" />
-                    Quote of the Day
-                  </div>
-
-                  <p className="text-sm italic text-muted-foreground leading-relaxed">
-                    "{quote.q}" — <span className="font-medium">Amit Kumar, Founder of TechieHelp</span>
-                  </p>
-                      
-                </motion.div>
-              )}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-sm -z-10"
                 initial={{ x: -300, opacity: 0 }}

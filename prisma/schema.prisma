@@ -27,6 +27,11 @@ model User {
   assessments   Assessment[]
   resume        Resume?
   coverLetter   CoverLetter[]
+  postedJobs    Job[]     @relation("JobPoster")
+  applications  JobApplication[]
+  voiceInterviews VoiceInterview[]
+  courses       Course[]  @relation("CourseCreator")
+  courseEnrollments CourseEnrollment[]
 }
 
 model Assessment {
@@ -37,6 +42,7 @@ model Assessment {
   questions     Json[]    // Array of {question, answer, userAnswer, isCorrect}
   category      String    // "Technical", "Behavioral", etc.
   improvementTip String?  // AI-generated improvement tip
+  type          String    @default("quiz") // "quiz" or "voice"
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -96,4 +102,123 @@ model IndustryInsight {
   nextUpdate    DateTime  // Scheduled update time
 
   @@index([industry])
+}
+
+// Voice Interview Model
+model VoiceInterview {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  category        String    // "Technical", "Behavioral", etc.
+  questions       Json[]    // Array of {question, audioUrl?, transcript?, answer}
+  userResponses   Json[]    // Array of {audioUrl, transcript, duration}
+  overallScore    Float?    // AI-evaluated score
+  feedback        String?   // AI-generated feedback
+  language        String    @default("en") // Language code
+  status          String    @default("in-progress") // in-progress, completed
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([userId])
+}
+
+// Job Posting Model
+model Job {
+  id              String    @id @default(cuid())
+  posterId        String
+  poster          User      @relation("JobPoster", fields: [posterId], references: [id])
+  title           String
+  company         String
+  description     String    @db.Text
+  location        String
+  type            String    // "Full-time", "Part-time", "Contract"
+  remote          String    // "Remote", "Hybrid", "Onsite"
+  salaryMin       Int?
+  salaryMax       Int?
+  skills          String[]  // Required skills
+  experience      Int?      // Minimum years of experience
+  status          String    @default("active") // active, closed
+  applications    JobApplication[]
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([posterId])
+  @@index([status])
+}
+
+// Job Application Model
+model JobApplication {
+  id              String    @id @default(cuid())
+  jobId           String
+  job             Job       @relation(fields: [jobId], references: [id])
+  applicantId     String
+  applicant       User      @relation(fields: [applicantId], references: [id])
+  coverLetter     String?   @db.Text
+  status          String    @default("pending") // pending, reviewed, shortlisted, rejected
+  matchScore      Float?    // AI-calculated match score
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([jobId])
+  @@index([applicantId])
+  @@unique([jobId, applicantId]) // One application per user per job
+}
+
+// Course Model
+model Course {
+  id              String    @id @default(cuid())
+  creatorId       String
+  creator         User      @relation("CourseCreator", fields: [creatorId], references: [id])
+  title           String
+  platform        String    // "YouTube", "Udemy", "Coursera", "Custom", etc.
+  instructor      String
+  description     String    @db.Text
+  category        String    // "Web Development", "AI & ML", etc.
+  jobRole         String?   // Target job role for this course
+  level           String    // "Beginner", "Intermediate", "Advanced"
+  duration        String?   // "40 hours", "3 months", etc.
+  isPremium       Boolean   @default(false)
+  price           Float     @default(0) // Price in dollars, 0 for free
+  paymentDetails  String?   // Payment instructions (phone number, payment method)
+  skills          String[]  // Skills covered
+  rating          Float?
+  thumbnailUrl    String?
+  // Video and document resources
+  videos          Json[]    // Array of {title, url, platform, duration}
+  documents       Json[]    // Array of {title, url, type}
+  // External links
+  courseUrl       String?   // External course URL
+  // Enrollment tracking
+  enrollments     CourseEnrollment[]
+  status          String    @default("active") // active, archived
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([creatorId])
+  @@index([category])
+  @@index([status])
+  @@index([jobRole])
+  @@index([isPremium])
+}
+
+// Course Enrollment Model
+model CourseEnrollment {
+  id              String    @id @default(cuid())
+  courseId        String
+  course          Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  status          String    @default("pending") // pending, approved, rejected
+  paymentProof    String?   // URL to payment screenshot/invoice
+  transactionId   String?   // Transaction reference
+  paymentMethod   String?   // Payment method used
+  enrolledAt      DateTime  @default(now())
+  approvedAt      DateTime?
+  approvedBy      String?   // Admin/creator user ID who approved
+  notes           String?   @db.Text // Admin notes
+  
+  @@index([courseId])
+  @@index([userId])
+  @@index([status])
+  @@unique([courseId, userId]) // One enrollment per user per course
 }

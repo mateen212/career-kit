@@ -19,13 +19,13 @@ export const features = [
     title: "AI-Powered Guidance",
     description:
       "Discover career paths tailored to your skills with AI-driven insights.",
-      button: { text: "AI Guidance", link: "/ats-checker" },
+      button: { text: "Career Guidance", link: "/dashboard" },
   },
   {
     icon: <ScrollText className="w-6 h-6 mb-4 text-gray-400" />,
     title: "Smart Resume & Letter",
     description: "Create ATS-optimized resumes and cover letters effortlessly.",
-    button: { text: "Build Your Resume", link: "/resume-builder" },
+    button: { text: "Build Your Resume", link: "/resume" },
   },
   {
     icon: <ShieldCheck className="w-6 h-6 mb-4 text-gray-400" />,
@@ -43,7 +43,7 @@ export const features = [
     icon: <Mic className="w-6 h-6 mb-4 text-gray-400" />,
     title: "Mock Interviews",
     description: "Get AI-driven interview feedback to enhance your skills.",
-    button: { text: "Practice Now", link: "/mock-interview" },
+    button: { text: "Practice Now", link: "/interview" },
   },
   {
     icon: <BarChart3 className="w-6 h-6 mb-4 text-gray-400" />,

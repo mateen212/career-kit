@@ -69,3 +69,71 @@ export async function getIndustryInsights() {
 
   return user.industryInsight;
 }
+
+export async function regenerateIndustryInsights() {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+    include: {
+      industryInsight: true,
+    },
+  });
+
+  if (!user) throw new Error("User not found");
+  if (!user.industry) throw new Error("User industry not set");
+
+  // Generate new insights
+  const insights = await generateAIInsights(user.industry);
+
+  // Update or create industry insight
+  if (user.industryInsight) {
+    const updatedInsight = await db.industryInsight.update({
+      where: { industry: user.industry },
+      data: {
+        ...insights,
+        lastUpdated: new Date(),
+        nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      },
+    });
+
+    return updatedInsight;
+  } else {
+    const newInsight = await db.industryInsight.create({
+      data: {
+        industry: user.industry,
+        ...insights,
+        nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      },
+    });
+
+    return newInsight;
+  }
+}
+
+export async function updateIndustryInsights(updates) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+    include: {
+      industryInsight: true,
+    },
+  });
+
+  if (!user) throw new Error("User not found");
+  if (!user.industryInsight) throw new Error("No insights found. Please generate insights first.");
+
+  // Update only the provided fields
+  const updatedInsight = await db.industryInsight.update({
+    where: { industry: user.industry },
+    data: {
+      ...updates,
+      lastUpdated: new Date(),
+    },
+  });
+
+  return updatedInsight;
+}

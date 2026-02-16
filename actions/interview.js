@@ -17,17 +17,30 @@ export async function generateQuiz() {
     select: {
       industry: true,
       skills: true,
+      experience: true,
     },
   });
 
   if (!user) throw new Error("User not found");
 
+  // Determine difficulty level based on experience
+  const experienceLevel = !user.experience || user.experience < 2 
+    ? "entry-level (0-2 years)" 
+    : user.experience < 5 
+    ? "mid-level (2-5 years)" 
+    : "senior-level (5+ years)";
+
   const prompt = `
-    Generate 10 technical interview questions for a ${
+    Generate 10 technical interview questions for a ${experienceLevel} ${
       user.industry
     } professional${
     user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
   }.
+    
+    IMPORTANT: Adjust the difficulty based on the experience level:
+    - For entry-level (0-2 years): Focus on fundamental concepts, basic problem-solving, and common practices
+    - For mid-level (2-5 years): Include intermediate concepts, practical scenarios, and design patterns
+    - For senior-level (5+ years): Include advanced topics, system design, optimization, and best practices
     
     Each question should be multiple choice with 4 options.
     

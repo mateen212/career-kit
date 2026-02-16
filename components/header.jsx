@@ -10,6 +10,8 @@ import {
   StarsIcon,
   MoonIcon,
   SunIcon,
+  BarChart3,
+  User,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -58,6 +60,16 @@ export default async function Header() {
               </Button>
             </Link>
 
+            <Link href="/industry-insights">
+              <Button
+                variant="outline"
+                className="hidden lg:inline-flex items-center gap-2"
+              >
+                <BarChart3 className="h-4 w-4" />
+                {BUTTONS_MENUS.INDUSTRY_INSIGHTS}
+              </Button>
+            </Link>
+
             {/* Growth Tools Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -68,6 +80,12 @@ export default async function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link href="/industry-insights" className="flex items-center gap-2 lg:hidden">
+                    <BarChart3 className="h-4 w-4" />
+                    {BUTTONS_MENUS.INDUSTRY_INSIGHTS}
+                  </Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/resume" className="flex items-center gap-2">
                     <FileText className="h-4 w-4" />
@@ -100,16 +118,30 @@ export default async function Header() {
           </SignedOut>
 
           <SignedIn>
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "w-10 h-10",
-                  userButtonPopoverCard: "shadow-xl",
-                  userPreviewMainIdentifier: "font-semibold",
-                },
-              }}
-              afterSignOutUrl="/"
-            />
+            <div className="flex items-center gap-2">
+              <Link href="/profile">
+                <Button variant="outline" size="sm" className="gap-2">
+                  <User className="h-4 w-4" />
+                  <span className="hidden lg:inline">Edit Profile</span>
+                </Button>
+              </Link>
+              <Link href="/course-admin">
+                <Button variant="outline" size="sm" className="gap-2">
+                  <GraduationCap className="h-4 w-4" />
+                  <span className="hidden md:inline">My Courses</span>
+                </Button>
+              </Link>
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: "w-10 h-10",
+                    userButtonPopoverCard: "shadow-xl",
+                    userPreviewMainIdentifier: "font-semibold",
+                  },
+                }}
+                afterSignOutUrl="/"
+              />
+            </div>
           </SignedIn>
           <ThemSwitch />
         </div>

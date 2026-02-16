@@ -66,7 +66,7 @@ export default function Footer() {
 
           <div className="flex gap-4 mt-6">
             <a
-              href="https://github.com/amitkumardemo/EdgeCareer"
+              href="https://github.com/Abdullahakmal238"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -74,7 +74,7 @@ export default function Footer() {
               <Github className="h-6 w-6 hover:scale-110 transition-transform" />
             </a>
             <a
-              href="https://www.linkedin.com/in/amit-kumar-686196225/"
+              href="https://www.linkedin.com/in/abdullahakmal238/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -82,7 +82,7 @@ export default function Footer() {
               <Linkedin className="h-6 w-6 hover:scale-110 transition-transform" />
             </a>
             <a
-              href="mailto:amitk25783@gmail.com"
+              href="mailto:abdullahakmal238@gmail.com"
               className="hover:text-primary transition-colors"
             >
               <Mail className="h-6 w-6 hover:scale-110 transition-transform" />
