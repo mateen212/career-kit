@@ -220,14 +220,9 @@ This section explains how users sign up / sign in, what data we collect during o
 Feel free to open issues or discussions if you have any feedback, feature suggestions, or want to collaborate!
 
 ---
-## 📄 License
-This project is licensed under the [License: MIT](https://github.com/akathedeveloper/CareSync/blob/main/License)
 
 ---
-## 🌸 GirlScript Summer of Code 2025
 
-This project is proudly part of **GSSoC '25**!
-***Thanks to the amazing open-source community, contributors, and mentors for your valuable support.***
 
 ---
 ## 💬 Support & Contact
