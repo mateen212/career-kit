@@ -185,6 +185,37 @@ Ready to see? Click the link below to get it directly in your browser:
 [**🌐 Do explore Live Demo**](https://career-kit-nine.vercel.app/)
 
 ---
+## 🔐 Authentication & Data Flow
+
+This section explains how users sign up / sign in, what data we collect during onboarding, and how that data is used to surface features such as voice interviews, courses, and personalized recommendations.
+
+- **Authentication provider**: `Clerk` is used for sign-up, sign-in, and session management. The app uses the Clerk publishable key (`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`) and secret (`CLERK_SECRET_KEY`) from your `.env`.
+- **Sign-up / Sign-in pages**: The default routes are `/sign-up` and `/sign-in`. After successful sign-up or sign-in users are redirected to `/onboarding` (controlled by `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL` / `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL`).
+
+- **Onboarding flow (what to collect)**:
+  - Basic profile: name, email (from Clerk), job role, years of experience, industry, skills.
+  - Career goals: target roles, preferred locations, salary expectations.
+  - Content preferences: whether the user wants voice interviews, practice courses, or reading-based lessons.
+
+- **Where we store it**: onboarding answers are saved in the database (via Prisma / NeonDB) associated with the Clerk user id. The relevant server-side API uses `prisma` models in `prisma/schema.prisma`.
+
+- **How data is used**:
+  - `Resume Builder` and `Cover Letter` generators pre-fill templates using profile and job-role fields.
+  - `Interview` and `Voice Interview` features generate practice questions targeted to the user’s role and skills. Voice interview uses recorded audio and AI scoring to provide feedback.
+  - `Course Recommendations` surface tailored courses based on skills gaps detected from the profile and past interactions.
+  - `Industry Insights` and dashboards show customized market trends based on the user’s selected industry and goals.
+
+- **Routes & components to look at**:
+  - Onboarding page: `/app/(auth)/onboarding` (or `/onboarding`) — collects user inputs and writes to the DB.
+  - Profile page: `/app/(main)/profile` — edit/view profile data.
+  - Interview pages: `/app/(main)/interview` and `/app/(main)/interview/voice` — practice and voice interview flows.
+  - Courses: `/app/(main)/course-recommendations` and `/app/(main)/course-admin`.
+
+- **Developer notes**:
+  - Ensure `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL` and `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL` point to your onboarding route so new users complete the profile before using features.
+  - Protect API routes with Clerk middleware or server-side user checks so data is only exposed to the owning user.
+  - If you add new onboarding questions, migrate the Prisma schema and update any seeding scripts.
+
 ## 💡 Suggestions & Feedback
 Feel free to open issues or discussions if you have any feedback, feature suggestions, or want to collaborate!
 
