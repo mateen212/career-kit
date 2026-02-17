@@ -182,7 +182,7 @@ Replace 3000:3000 with <host-port>:<container-port> as needed.
 
 Ready to see? Click the link below to get it directly in your browser:
 
-[**🌐 Do explore Live Demo**](edge-career.vercel.app)
+[**🌐 Do explore Live Demo**](https://career-kit-nine.vercel.app/)
 
 ---
 ## 💡 Suggestions & Feedback
