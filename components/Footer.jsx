@@ -66,7 +66,7 @@ export default function Footer() {
 
           <div className="flex gap-4 mt-6">
             <a
-              href="https://github.com/Abdullahakmal238"
+              href="https://github.com/mateen212"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -74,7 +74,7 @@ export default function Footer() {
               <Github className="h-6 w-6 hover:scale-110 transition-transform" />
             </a>
             <a
-              href="https://www.linkedin.com/in/abdullahakmal238/"
+              href="https://www.linkedin.com/in/mateen-zahid/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -82,7 +82,7 @@ export default function Footer() {
               <Linkedin className="h-6 w-6 hover:scale-110 transition-transform" />
             </a>
             <a
-              href="mailto:abdullahakmal238@gmail.com"
+              href="mailto:mateen1598@gmail.com"
               className="hover:text-primary transition-colors"
             >
               <Mail className="h-6 w-6 hover:scale-110 transition-transform" />
@@ -92,7 +92,7 @@ export default function Footer() {
       </div>
 
       <div className="text-center text-gray-500 dark:text-gray-400 text-xs mt-10">
-        © {new Date().getFullYear()} CareerKit. Built with 💡 by the CareerKit Team.
+        © {new Date().getFullYear()} CareerKit. Built with 💡 by Mateen Zahid.
       </div>
     </footer>
   );
